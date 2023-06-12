@@ -103,7 +103,10 @@ int main()
     int ret =0;
     char password[20] = {0};    //数组本身就是地址，下面的不需要加&符号
     printf("请输入密码：>");    //输入密码123按回车确认底层为123\n。
-    scanf("%s",password);       
+    scanf("%s",password);
+    //缓存区还剩下一个'\n'
+    //读取一下'\n'
+    //getchar(); 
     printf("请确认(Y/N:>)");
     ret = getchar();            //此时输入缓存区剩下\n被读取
     if(ret == 'Y'){
