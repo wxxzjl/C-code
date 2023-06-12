@@ -107,6 +107,8 @@ int main()
     //缓存区还剩下一个'\n'
     //读取一下'\n'
     //getchar(); 
+    //或则这样写
+    //while((getchar() != '\n')){;}  
     printf("请确认(Y/N:>)");
     ret = getchar();            //此时输入缓存区剩下\n被读取
     if(ret == 'Y'){
