@@ -143,4 +143,126 @@ int main()
 }
 
 
-//
+//用户输入密码3次机会
+#include <stdio.h>
+int main()
+{
+    int i=0;
+    char password[20] = {0};    //字符数组本身就是地址，下面键盘录入不需要用&符号
+    for(i=0;i<3;i++)
+    {
+        printf("请输入密码：");
+        scanf("%s",password);
+        //if(password == "123456")   字符串比较不能用==号
+        if(strcmp(password,"123456")==0)    //字符串比较需要用strcmp库函数12
+        {
+            printf("登陆成功\n");
+            break;
+        }else{
+            printf("输入错误\n");
+        }
+    }
+    return 0;
+}
+
+
+//下面代码输出结果是什么？
+//答案：8，10，12，14，16 
+#include <stdio.h>
+int sum(int a)
+{
+    int c=0;
+    static int b=3;  //static修饰局部变量会延长生命周期，不会销毁。
+    c += 1;
+    b += 2;
+    return(a+b+c);
+}
+int main()
+{
+    int i;
+    int a=2;
+    for(i=0;i<5;i++)
+    {
+        printf("%d\n",sum(a));
+    }
+    return 0;
+}
+
+
+//答案：打印5死循环
+#include <stdio.h>
+int main()
+{
+    int i=0;
+    for(i=0;i<10;i++)
+    {
+        if(i=5){    //这是赋值，一直赋值5，打印5，且永远循环6
+            printf("%d\n",i);
+        }
+    }
+    return 0;
+}
+
+
+//求最大公约数
+#include <stdio.h>
+
+// 欧几里得算法实现求最大公约数
+int gcd(int a, int b) {
+    if (b == 0) {
+        return a;
+    } else {
+        return gcd(b, a % b);
+    }
+}
+
+int main() {
+    int num1, num2;
+    printf("Enter two positive integers: ");
+    scanf("%d %d", &num1, &num2);
+    printf("GCD of %d and %d is %d\n", num1, num2, gcd(num1, num2));
+    return 0;
+}
+
+
+//另一种写法
+#include <stdio.h>
+int main()
+{
+    int m=0;
+    int n=0;
+    int r=0;
+    printf("请输入两个数：");
+    scanf("%d%d",&m,&n);
+    while(r=m%n){
+        m=n;
+        n=r;
+    }
+    printf("这两个数最大公约数是:%d\n",n);
+    return 0;
+}
+
+
+//计算闰年
+#include <stdio.h>
+int main()
+{
+    int year=0;
+    int count=0;
+    for(year=1000;year<=2000;year++)
+    {
+        //判断year是否为闰年
+        //1能被4整除并且不能被100整除是闰年
+        //2能被400整除是闰年
+        if((year%4==0 && year%100!=0) || (year%400==0))
+        {
+            printf("%d\n",year);
+            count++;
+        }
+    }
+    printf("一共有%d个闰年\n",count);
+    return 0;
+}
+
+
+//判断质数
