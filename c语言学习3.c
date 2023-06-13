@@ -266,3 +266,45 @@ int main()
 
 
 //判断质数
+#include <stdio.h>
+int main()
+{
+    int i=0;
+    for(i=100;i<=200;i++){
+        int j=0;
+        for(j=2;j<i;j++){
+            if(i%j==0){
+                break;
+            }
+        }
+        if(j==i){
+                printf("这个数是质数：%d\n",i);
+            }
+    }
+    
+    return 0;
+}
+
+
+//优化代码
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+    int i=0;
+    int count=0;
+    for(i=101;i<=200;i+=2){     //偶数不可能，直接+2，看奇数
+        int j=0;
+        for(j=2;j<sqrt(i);j++){     //sqrt开平方函数
+            if(i%j==0){
+                break;
+            }
+        }
+        if(j>sqrt(i)){
+                printf("这个数是质数：%d\n",i);
+                count++;
+            }
+    }
+    printf("一共有%d个质素\n",count);
+    return 0;
+}
