@@ -71,3 +71,61 @@ int main()
     }
     return 0;
 }
+
+
+//猜数字游戏
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void menu(){
+    printf("####################\n");
+    printf("## 1玩游戏  0不完了##\n");
+    printf("####################\n");
+}
+void game(){
+    int ret =0;
+    int guess=0;    //接收猜的数字
+    ret=rand()%100+1;   //生成一个1-100的随机数
+    while (1)
+    {
+        printf("请输入一个数：");
+        scanf("%d",&guess);
+        if(guess>ret){
+            printf("猜大了\n");
+        }else if(guess<ret){
+            printf("猜小了\n");
+        }else{
+            printf("恭喜你，猜对了\n");
+            break;
+        }
+    }
+    
+}
+int main()
+{
+    int input=0;
+    srand((unsigned int)time(NULL));    //时间戳
+    do{
+        menu();     //调用游戏选项
+        printf("请选择：");
+        scanf("%d",&input);
+        switch (input)
+        {
+        case 1:
+            game();     //调用游戏函数
+            break;
+        case 0:
+            printf("游戏结束\n");
+            break;
+        default:
+            printf("输入错误\n");
+            break;
+        }
+
+    }while (input);
+    return 0;
+}
+   
+
+
+//
