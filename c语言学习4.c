@@ -148,3 +148,24 @@ int main(){
     }
     return 0;
 }
+
+
+//倒置数组元素
+#include <stdio.h>
+int main(){
+    int arr[5]={1,3,5,4,2};
+    int start=0;
+    int end=sizeof(arr)/sizeof(arr[0])-1;
+    while(start<end){
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+
+        start++;
+        end--;
+    }
+    for(int i=0;i<5;i++){
+        printf("%d\n",arr[i]);
+    }
+    return 0;
+}
