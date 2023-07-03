@@ -169,3 +169,27 @@ int main(){
     }
     return 0;
 }
+
+
+//冒泡排序，左边数比右边大就往右移
+#include <stdio.h>
+int main()
+{
+int arr[9]= {4,2,8,0,5,7,1,3,9};
+for(int i=0;i<9-i;i++){
+    //排序总轮数=元素个数-1
+    for(int j=0;j<9-i-1;j++)
+    {
+        //每轮对比次数=元素个数-排序轮数-1
+        if(arr[j]>arr[j+1]){
+            int temp =arr[j];
+            arr[j]=arr[j+1];
+            arr[j+1]=temp;
+        }
+    }
+}
+for(int i=0;i<9;i++){
+    printf("%d\n",arr[i]);
+}
+return 0;
+}
