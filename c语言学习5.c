@@ -55,3 +55,44 @@ int main() {
 	printf("len= %d\n", len);
 	return 0;
 }
+
+
+//计算第n个斐波那契数
+//递归方法，容易溢出
+#include <stdio.h>
+#include <string.h>
+int Fib(int n) {
+	if (n < 3)
+		return 1;
+	else
+		return Fib(n - 1) + Fib(n - 2); //计算量巨大，会溢出
+}
+int main(){
+	int n = 0;
+	scanf("%d", &n);
+	int rest = Fib(n);
+	printf("rest = %d\n", rest);
+	return 0;
+}
+
+//迭代方法
+#include <stdio.h>
+int Fib(int n){
+	int a = 1;
+	int b = 1;
+	int c = 1;
+	while (n > 2) {
+		c = a + b;
+		a = b;
+		b = c;
+		n--;
+	}
+	return c;
+}
+int main() {
+	int n = 0;
+	scanf("%d", &n);
+	int rest = Fib(n);
+	printf("rest = %d\n", rest);
+	return 0;
+}
