@@ -29,6 +29,23 @@ int main()
     return 0;
 }
 
+//递归方法
+#include <stdio.h>
+#include <string.h>
+int Fac(int n) {
+	if (n <= 1)
+		return 1;
+	else
+		return n * Fac(n - 1);
+}
+int main(){
+	int n = 0;
+	scanf("%d", &n);
+	int rest = Fac(n);
+	printf("%d\n", rest);
+	return 0;
+}
+
 
 
 //计算1！+2！+3！+4！+5！...+10！=
