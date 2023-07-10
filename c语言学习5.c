@@ -143,3 +143,25 @@ int main() {
 	printf("a=%d,b=%d\n", a, b);
 	return 0;
 }
+
+
+//查找数组中的单生狗
+#include <stdio.h>
+int main() {
+	int arr[] = { 1,2,3,4,1,2,3,4,5,5,7 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	for (int i = 0; i < sz; i++) {
+		int count = 0;
+		for (int j = 0; j < sz; j++) {
+			if (arr[i] == arr[j]) {
+				count++;
+			}
+		}
+		if (count == 1) {
+			printf("%d\n", arr[i]);
+		}
+	}
+	return 0;
+}
+
+//优化代码
