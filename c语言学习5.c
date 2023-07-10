@@ -126,3 +126,20 @@ int main() {
     hanoi(n, 'A', 'C', 'B');  // A, B and C are names of rods
     return 0;
 }
+
+
+//#define _CRT_SECURE_NO_WARNINGS 1
+//交换a和b，不要使用零时变量
+#include <stdio.h>
+int main() {
+	int a = 3;
+	int b = 5;
+	printf("a=%d,b=%d\n", a, b);
+	//^按（二进制位）位异或：相同为0，相异为1
+	//3的二进制位011，5的二进制位101
+	a = a ^ b;//011+101---->110
+	b = a ^ b;//110+101---->011  是3
+	a = a ^ b;//110+011---->101  是5
+	printf("a=%d,b=%d\n", a, b);
+	return 0;
+}
