@@ -148,7 +148,7 @@ int main() {
 //查找数组中的单生狗
 #include <stdio.h>
 int main() {
-	int arr[] = { 1,2,3,4,1,2,3,4,5,5,7 };
+	int arr[] = { 1,2,3,4,1,2,3,4,5 };
 	int sz = sizeof(arr) / sizeof(arr[0]);
 	for (int i = 0; i < sz; i++) {
 		int count = 0;
@@ -165,3 +165,15 @@ int main() {
 }
 
 //优化代码
+#include <stdio.h>
+int main() {
+	int arr[] = { 1,2,3,4,1,2,3,4,5 };
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	int flag = 0;
+	for (int i = 0; i < sz; i++) {	
+		//异或满足交换律
+		flag = flag ^ arr[i];
+	}
+	printf("%d\n", flag);
+	return 0;
+}
