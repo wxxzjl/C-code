@@ -177,3 +177,38 @@ int main() {
 	printf("%d\n", flag);
 	return 0;
 }
+
+
+//求一个整数存储在内存中的二进制中的1的个数
+//解法一：与1&得1该位就是1
+#include <stdio.h>
+int main() {
+	int num = 0;
+	int count = 0;
+	scanf("%d", &num);
+	for (int i = 0; i < 32; i++) {
+		if (1 == ((num >> i) & 1)) {
+			count++;
+		}
+	}
+	printf("%d\n", count);
+	return 0;
+}
+
+
+//解法二
+//-1时这种方法有问题
+#include <stdio.h>
+int main() {
+	int num = 0;
+	int count = 0;
+	scanf("%d", &num);
+	while (num) {
+		if (num % 2 == 1) 
+			count++;
+		num = num / 2;
+		
+	}
+	printf("%d\n", count);
+	return 0;
+}
