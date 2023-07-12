@@ -56,6 +56,22 @@ int main() {
 	return 0;
 }
 
+//利用指针求字符串长度
+#include <stdio.h>
+int my_strlen(char* str) {
+	char *start = str;
+	char *end = str;
+	while (*end != '\0') {
+		end++;
+	}
+	return end-start;
+}
+int main() {
+	char arr[] = "fantastic";
+	int len = my_strlen(arr);
+	printf("%d\n", len);
+	return 0;
+}
 
 //计算第n个斐波那契数
 //1 1 2 3 5 8 13 21 34 55
