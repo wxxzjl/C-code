@@ -228,6 +228,19 @@ int main() {
 	printf("%d\n", count);
 	return 0;
 }
+//解法三
+#include <stdio.h>
+int main() {
+	int count = 0;
+	int n = 0;
+	scanf("%d", &n);
+	while(n){
+		n = n & (n - 1);
+		count++;
+	}
+	printf("%d\n", count);
+	return 0;
+}
 
 
 //例题
