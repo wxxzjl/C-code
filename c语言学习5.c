@@ -279,3 +279,22 @@ int main() {
 	printf("a=%d b=%d c=%d", a, b, c);
 	return 0;
 }
+
+//输入一个数，取出每一位相加（利用递归）
+#include <stdio.h>
+#include <string.h>
+int digi_sum(int n) {
+	if (n > 9) {
+		return digi_sum(n / 10)+n % 10;	//递归调用
+	}
+	else {
+		return n;
+	}
+}
+int main() {
+	int num = 0;
+	scanf("%d", &num);
+	int sum =digi_sum(num);	//函数调用
+	printf("sum= %d\n", sum);
+	return 0;
+}
