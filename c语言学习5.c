@@ -298,3 +298,25 @@ int main() {
 	printf("sum= %d\n", sum);
 	return 0;
 }
+
+
+//计算n的k次幂
+#define _CRT_SECURE_NO_WARNINGS 1
+#include<stdio.h>
+double poww(int a, int b) {
+	//n^k=n*n^(k-1)
+	if (b < 0)
+		return (1.0 / (poww(a, -b)));
+	else if (b == 0)
+		return 1;
+	else
+		return a * poww(a, b - 1);
+}
+int main() {
+	int n = 0;
+	int k = 0;
+	scanf("%d%d", &n, &k);
+	double ret = poww(n, k);
+	printf("n^k=%lf\n", ret);
+	return 0;
+}
