@@ -360,3 +360,23 @@ int main() {
 	printf("%s\n", arr1);
 	return 0;
 }
+
+//继续优化
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<assert.h>
+char* my_strcpy(char* dest, const char* src) {
+	char* ret = dest;
+	assert(dest != NULL);//断言，传违规报错
+	assert(dest != NULL);//断言
+	while (*dest++ = *src++ ) {
+		;
+	}
+	return ret;
+}
+int main() {
+	char arr1[] = "#######";
+	char arr2[] = "bit";
+	printf("%s\n", my_strcpy(arr1, arr2));
+	return 0;
+}
