@@ -62,3 +62,16 @@ int main() {
 	printf("%d\n", strlen(a));//char打印成%d要截断
 	return 0;	
 }
+
+//例题
+//答案：死循环
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<windows.h>
+unsigned char i = 0;//0-255
+int main() {
+	for (i = 0; i <= 255; i++) {	//恒成立
+		printf("hello world\n");
+	}
+	return 0;	
+}
