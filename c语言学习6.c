@@ -46,3 +46,19 @@ int main() {
 	}
 	return 0;	
 }
+
+
+//例题
+//答案：255
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<windows.h>
+int main() {
+	char a[1000];
+	int i;
+	for (i = 0; i < 1000; i++) {
+		a[i] = -1 - i;//-1--->-128--->127--->1--->0停止
+	}
+	printf("%d\n", strlen(a));//char打印成%d要截断
+	return 0;	
+}
