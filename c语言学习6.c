@@ -31,3 +31,18 @@ int main() {
 	printf("%d %d %d %u ", a, b, c, e);
 	return 0;
 }
+
+
+//例题
+//答案：死循环
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<windows.h>
+int main() {
+	unsigned int i;	//-1放到无符号里是一个超级大的数
+	for (i = 9; i >= 0; i--) {
+		printf("%u\n", i);
+		Sleep(1000);	//休息1s
+	}
+	return 0;	
+}
