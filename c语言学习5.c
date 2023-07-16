@@ -72,6 +72,25 @@ int main() {
 	printf("%d\n", len);
 	return 0;
 }
+//优化
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+#include<assert.h>
+int my_strlen(const char* str) {
+	int count = 0;
+	assert(str != NULL);//保证指针有效性
+	while (*str != '\0') {
+		count++;
+		str++;
+	}
+	return count;
+}
+int main() {
+	char arr[] = "fantastic";
+	int len = my_strlen(arr);
+	printf("%d\n", len);
+	return 0;
+}
 
 //计算第n个斐波那契数
 //1 1 2 3 5 8 13 21 34 55
