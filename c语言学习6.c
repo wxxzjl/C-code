@@ -52,7 +52,6 @@ int main() {
 //答案：255
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<windows.h>
 int main() {
 	char a[1000];
 	int i;
@@ -67,11 +66,28 @@ int main() {
 //答案：死循环
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
-#include<windows.h>
 unsigned char i = 0;//0-255
 int main() {
 	for (i = 0; i <= 255; i++) {	//恒成立
 		printf("hello world\n");
 	}
+	return 0;	
+}
+
+
+//答案n的值为9
+//* pfloat的值为0.000000
+//n的值为1091567616
+//* pfloat的值为9.000000
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+int main() {
+	int n = 9;
+	float* pfloat = (float*)&n;
+	printf("n的值为%d\n", n);
+	printf("* pfloat的值为%f\n", * pfloat);
+	*pfloat = 9.0;
+	printf("n的值为%d\n", n);
+	printf("* pfloat的值为%f\n", *pfloat);
 	return 0;	
 }
