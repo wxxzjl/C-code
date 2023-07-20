@@ -192,3 +192,18 @@ int main() {
 	printf("%d\n", strlen(&arr[0]+1));//随机值，从第二个元素往后
 	return 0;
 }
+
+//例题
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	char arr[] = "abcdef";
+	printf("%d\n", sizeof(arr));//7 计算的是数组的大小
+	printf("%d\n", sizeof(arr+0));//(4/8) 计算的是地址，arr+0是首元素地址
+	printf("%d\n", sizeof(*arr));//1 计算的是首元素大小
+	printf("%d\n", sizeof(arr[1]));//1 arr[1]是第二个元素
+	printf("%d\n", sizeof(&arr));//(4/8) &arr虽然是数组的地址，但也是地址
+	printf("%d\n", sizeof(&arr+1));//(4/8) &arr是数组的地址，&arr+1跳过整个数组，但还是地址
+	printf("%d\n", sizeof(&arr[0]+1));//(4/8) &arr[0]+1取出第二个元素的地址
+	return 0;
+}
