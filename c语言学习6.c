@@ -128,3 +128,34 @@ int main() {
 	printf("%d\n", sizeof(&arr[0]+1));//（4/8）&arr[0]+1取出第二个元素的地址
 	return 0;
 }
+
+//qsort函数
+
+qsort函数是C语言中的快速排序函数,可以用来对数组进行排序。
+qsort函数的原型为:
+void qsort(void *base, size_t nitems, size_t size, int (*compar)(const void *, const void*));
+其中参数含义如下:
+- base: 待排序数组的首地址
+- nitems: 数组中待排序元素的个数
+- size: 每个元素的大小(单位字节)
+- compar: 用来比较两个元素的函数指针,需要程序员自己实现
+使用qsort函数排序数组的步骤是:
+1. 定义一个比较函数compar,该函数负责比较两个元素的大小,并返回比较结果(大于、等于、小于)。
+2. 调用qsort函数,传入数组名、数组元素数量、每个元素的大小和比较函数compar。
+3. qsort根据compar函数的结果对数组进行排序。
+例如:
+#include <stdio.h>  
+#include <stdlib.h>
+int compar(const void *a, const void *b) {
+  return (*(int*)a - *(int*)b); 
+}
+int main() {
+  int arr[] = {4, 2, 1, 5, 3};
+  int n = sizeof(arr)/sizeof(arr[0]);
+  qsort(arr, n, sizeof(int), compar);
+  for(int i=0; i<n; i++) {
+    printf("%d ", arr[i]);
+  }
+  return 0;
+}
+以上程序首先定义了一个compar函数用于比较两个int类型的大小,然后调用qsort函数排序数组arr,最后打印出排序后的结果。
