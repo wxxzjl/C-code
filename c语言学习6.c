@@ -159,3 +159,19 @@ int main() {
   return 0;
 }
 以上程序首先定义了一个compar函数用于比较两个int类型的大小,然后调用qsort函数排序数组arr,最后打印出排序后的结果。
+
+
+//例题
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	char arr[] = { 'a','b','c','d','e','f'};
+	printf("%d\n", sizeof(arr));//6 sizeof计算的是数组大小 
+	printf("%d\n", sizeof(arr+0));//（4/8）arr是首元素地址，arr+0还是首元素地址
+	printf("%d\n", sizeof(*arr));//1 arr是首元素地址，*arr是首元素 
+	printf("%d\n", sizeof(arr[1]));//1 第二个元素
+	printf("%d\n", sizeof(&arr));//（4/8）&arr虽是数组地址，但还是地址
+	printf("%d\n", sizeof(&arr+1));//（4/8）&arr是数组的地址，&arr+1跳过整个数组，但还是地址
+	printf("%d\n", sizeof(&arr[0]+1));//（4/8）&arr[0]+1取出第二个元素的地址
+	return 0;
+}
