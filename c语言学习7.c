@@ -28,3 +28,43 @@ int main() {
 	}
 	return 0;
 }
+
+//打印菱形
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	int line = 0;
+	while (1) {
+		printf("请输入想要的几行菱形位数(奇数)：");
+		scanf("%d", &line);
+		if (line % 2 == 0) {
+			printf("请输入奇数！谢谢\n");
+		}
+		else {
+			line = (line / 2) + 1;
+			break;
+		}
+	}
+	int i = 0;
+	for (i = 0; i <= line - 1; i++) {
+		int j = 0;
+		for (j = 0; j < line - 1 - i; j++) {
+			printf(" ");
+		}
+		for (j = 0; j < 2 * i + 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}
+	for (i = line - 1; i >0; i--) {
+		int j = 0;
+		for (j = 0; j < line-i; j++) {
+			printf(" ");
+		}
+		for (j = 0; j < 2 * i - 1; j++) {
+			printf("*");
+		}
+		printf("\n");
+	}	
+	return 0;
+}
