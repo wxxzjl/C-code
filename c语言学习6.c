@@ -366,7 +366,7 @@ int main() {
 	return 0;
 }
 
-//例题
+//例题Ⅶ
 //答案：at
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h> 
@@ -375,5 +375,23 @@ int main() {
 	const char** pa = a;
 	pa++;
 	printf("%s\n",*pa);
+	return 0;
+}
+
+////例题Ⅷ
+//答案：POINT
+//	ER
+//	ST
+//	EW
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	const char *c[] = {"ENTER","NEW","POINT","FIRST"};
+	const char** cp[] = { c + 3,c + 2,c + 1,c };
+	const char*** cpp = cp;
+	printf("%s\n",**++cpp);
+	printf("%s\n",*--*++cpp+3);
+	printf("%s\n",*cpp[-2]+3);
+	printf("%s\n",cpp[-1][-1]+1);
 	return 0;
 }
