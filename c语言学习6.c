@@ -365,3 +365,15 @@ int main() {
 	printf("%d,%d\n",*(ptr1-1),*(ptr2-1) );
 	return 0;
 }
+
+//例题
+//答案：at
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	const char *a[] = {"work","at","alibaba"};
+	const char** pa = a;
+	pa++;
+	printf("%s\n",*pa);
+	return 0;
+}
