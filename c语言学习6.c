@@ -240,3 +240,19 @@ int main() {
 	printf("%d\n", sizeof(&p[0]+1));//(4/8) b的地址
 	return 0;
 }
+
+//例题
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+int main() {
+	 char *p = "abcdef";//只能把a的地址存进去
+	printf("%d\n", strlen(p));//6
+	printf("%d\n", strlen(p+1));//5
+	printf("%d\n", strlen(*p));//'a'->97非法访问
+	printf("%d\n", strlen(p[0]));//'a'->97非法访问
+	printf("%d\n", strlen(&p));//随机值 存的是a的地址
+	printf("%d\n", strlen(&p+1));//随机值
+	printf("%d\n", strlen(&p[0]+1));//5
+	return 0;
+}
