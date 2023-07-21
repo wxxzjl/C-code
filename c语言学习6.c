@@ -256,3 +256,24 @@ int main() {
 	printf("%d\n", strlen(&p[0]+1));//5
 	return 0;
 }
+
+
+//计算
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+int main() {
+	int a [3][4] = { 0 };
+	printf("%d\n", sizeof(a));//48
+	printf("%d\n", sizeof(a[0][0]));//4 第一个元素大小
+	printf("%d\n", sizeof(a[0]));//16 第一行数据大小
+	printf("%d\n", sizeof(a[0]+1));//(4/8) 第一行第二个元素的地址
+	printf("%d\n", sizeof(*(a[0] + 1)));//4 第一行第二个元素的大小
+	printf("%d\n", sizeof(a + 1));//(4/8) a是首元素地址在二维数组里是第一行(首元素)地址，a+1是第二行地址
+	printf("%d\n", sizeof(*(a + 1)));//16 第二行的大小
+	printf("%d\n", sizeof(&a[0] + 1));//(4/8) 第二行地址
+	printf("%d\n", sizeof(*( & a[0] + 1)));//16 第二行元素大小
+	printf("%d\n", sizeof(*a));//16 第一行元素大小
+	printf("%d\n", sizeof(a[3]));//16 第四行地址，虽然没有，但不影响
+	return 0;
+}
