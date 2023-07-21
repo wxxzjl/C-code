@@ -313,7 +313,7 @@ int main() {
 	return 0;
 }
 
-//指针题Ⅱ
+//指针题Ⅲ
 //答案：4,2000000
 #define _CRT_SECURE_NO_WARNINGS 1
 #include <stdio.h> 
@@ -323,5 +323,33 @@ int main() {
 	int* ptr2 = (int*)((int)a + 1);//数组地址强转(int)+1向后挪1字节
 	//计算机中内存情况(小端存储)01 00 00 00 02 00 00 00 03 00 00 00 04 00 00 00
 	printf("%x,%x", ptr1[-1], *ptr2);
+	return 0;
+}
+
+
+//指针题Ⅳ
+//答案：1
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	int a[3][2] = { (0,1) ,(2,3),(4,5)};
+	//()括号表达式，存入数组的数据是1，3
+	//								5，0
+	//								0，0
+	int* p;
+	p = a[0];
+	printf("%d", p[0]);
+	return 0;
+}
+
+//指针题Ⅴ
+//答案：0xFFFFFFFC -4
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	int a[5][5];
+	int(*p)[4];
+	p = a;
+	printf("%p,%d\n" & p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
 	return 0;
 }
