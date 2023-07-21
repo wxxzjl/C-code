@@ -224,3 +224,19 @@ int main() {
 	printf("%d\n", strlen(&arr[0]+1));//5 从b往后
 	return 0;
 }
+
+//例题
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+int main() {
+	const char *p = "abcdef";//只能把a的地址存进去
+	printf("%d\n", sizeof(p));//(4/8) 计算的是指针变量p的大小
+	printf("%d\n", sizeof(p+1));//(4/8) 计算的是b的地址
+	printf("%d\n", sizeof(*p));//1 *p就是字符串第一个字符a
+	printf("%d\n", sizeof(p[0]));//1  p[0]==*(p+0)=='a'
+	printf("%d\n", sizeof(&p));//(4/8) 
+	printf("%d\n", sizeof(&p+1));//(4/8)
+	printf("%d\n", sizeof(&p[0]+1));//(4/8) b的地址
+	return 0;
+}
