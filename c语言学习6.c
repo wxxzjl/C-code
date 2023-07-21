@@ -353,3 +353,15 @@ int main() {
 	printf("%p,%d\n" & p[4][2] - &a[4][2], &p[4][2] - &a[4][2]);
 	return 0;
 }
+
+//例题Ⅵ
+//答案：10，5
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	int a[2][5] = { 1,2,3,4,5,6,7,8,9,10 };
+	int* ptr1 = (int*)(&a + 1);
+	int* ptr2 = (int*)(*(a + 1));
+	printf("%d,%d\n",*(ptr1-1),*(ptr2-1) );
+	return 0;
+}
