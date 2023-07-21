@@ -312,3 +312,16 @@ int main() {
 	printf("%p\n",(unsigned int*)p+0x1);//int* 地址+1 ->0x100004
 	return 0;
 }
+
+//指针题Ⅱ
+//答案：4,2000000
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+int main() {
+	int a[4] = { 1,2,3,4 };
+	int* ptr1 = (int*)(&a + 1);//数组的地址末尾强转(int*)
+	int* ptr2 = (int*)((int)a + 1);//数组地址强转(int)+1向后挪1字节
+	//计算机中内存情况(小端存储)01 00 00 00 02 00 00 00 03 00 00 00 04 00 00 00
+	printf("%x,%x", ptr1[-1], *ptr2);
+	return 0;
+}
