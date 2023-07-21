@@ -277,3 +277,18 @@ int main() {
 	printf("%d\n", sizeof(a[3]));//16 第四行地址，虽然没有，但不影响
 	return 0;
 }
+
+//指针题Ⅰ
+//答案：2 5
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+int main() {
+	int a [5] = { 1,2,3,4,5 };
+	int* ptr = (int*)(&a + 1);//&a数组地址(首元素)，&a + 1数组末地址，地址强转为等号左边的int*
+	printf("%d %d", *(a + 1), *(ptr - 1));//2；末地址-一个int->5
+	return 0;
+}
+
+//指针题Ⅱ
+//答案：
