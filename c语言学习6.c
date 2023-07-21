@@ -291,4 +291,24 @@ int main() {
 }
 
 //指针题Ⅱ
-//答案：
+//答案：0x100014  0x100001  0x100004
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+struct Tes
+{
+	int Num;
+	char* pcName;
+	short sDate;
+	char cha[2];
+	short sBa[4];
+}*p;
+//假设p的值为0x100000，如下表达式的值分别为多少？
+//已知，结构体Test类型变量大小是20个字节
+int main() {
+	
+	printf("%p\n",p+0x1);//结构体指针+1，20->14(十六进制)0x100014
+	printf("%p\n",(unsigned long)p+0x1);//强转成整数->1048576+1 0x100001
+	printf("%p\n",(unsigned int*)p+0x1);//int* 地址+1 ->0x100004
+	return 0;
+}
