@@ -207,3 +207,20 @@ int main() {
 	printf("%d\n", sizeof(&arr[0]+1));//(4/8) &arr[0]+1取出第二个元素的地址
 	return 0;
 }
+
+
+计算
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <string.h>
+int main() {
+	char arr[] = "abcdef";
+	printf("%d\n", strlen(arr));//6 计算的是数组的长度
+	printf("%d\n", strlen(arr+0));//6 arr+0是首元素地址
+	printf("%d\n", strlen(*arr));// 'a'->97非法访问
+	printf("%d\n", strlen(arr[1]));//'b'->98非法访问
+	printf("%d\n", strlen(&arr));//6 计算的是数组的长度
+	printf("%d\n", strlen(&arr+1));//随机值
+	printf("%d\n", strlen(&arr[0]+1));//5 从b往后
+	return 0;
+}
