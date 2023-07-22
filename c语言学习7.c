@@ -97,3 +97,34 @@ int main() {
 	printf("%s", arr);
 	return 0;
 }
+
+
+//优化
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <assert.h>
+#include <string.h>
+void reverse(char* left, char* right) {
+	assert(left != NULL);
+	assert(right != NULL);
+	char temp = *left;
+	*left = *right;
+	*right = temp;
+}
+void left_move(char*arr,int step) {
+	assert(arr);
+	int len = strlen(arr);
+	assert(step <= len);
+	reverse(arr,arr+step-1);//逆序左边
+	reverse(arr+step,arr+len-1);//逆序右边
+	reverse(arr,arr+len-1);//逆序全部
+}
+int main() {
+	char arr[] = "abcdef";
+	int step = 0;
+	printf("请输入左移步数：");
+	scanf("%d", &step);
+	left_move(arr, step);
+	printf("%s", arr);
+	return 0;
+}
