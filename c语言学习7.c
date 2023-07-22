@@ -171,3 +171,37 @@ int main() {
 		printf("NO\n");
 	return 0;
 }
+
+
+//优化
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <assert.h>
+#include <string.h>
+int is_left_move(char* s1, char* s2) {
+	int i = 0;
+	int len1 = strlen(s1);
+	int len2 = strlen(s2);
+	if (len1 != len2)
+		return 0;
+	//1在s1添加一个自己
+	//strcat(s1,s1);err
+	//strncat
+	strncat(s1, s1, 6);
+	//2判断s2指向的字符串是否是s1的子串
+	char* ret = strstr(s1, s2);
+	if (ret == NULL)
+		return 0;
+	else
+		return 1;
+}
+int main() {
+	char arr1[] = "abcdef";
+	char arr2[] = "cdefab";
+	int ret = is_left_move(arr1, arr2);
+	if (ret == 1) 
+		printf("YES\n");
+	else 
+		printf("NO\n");
+	return 0;
+}
