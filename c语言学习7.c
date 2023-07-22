@@ -68,3 +68,32 @@ int main() {
 	}	
 	return 0;
 }
+
+
+//左旋字符串
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <assert.h>
+#include <string.h>
+void start_Move(char arr[], int step) {
+	assert(arr != NULL);
+	int i = 0;
+	int len = strlen(arr);
+	for (i = 0; i < step; i++) {
+		int j = 0;
+		char left = *arr;
+		for (j = 0; j < len-1; j++) {
+			*(arr + j) = *(arr + j + 1);
+		}
+		*(arr + len - 1) = left;
+	}
+};
+int main() {
+	char arr[] = "abcdef";
+	int step = 0;
+	printf("请输入左旋转步数：");
+	scanf("%d", &step);
+	start_Move(arr, step);
+	printf("%s", arr);
+	return 0;
+}
