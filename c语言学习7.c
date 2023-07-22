@@ -128,3 +128,46 @@ int main() {
 	printf("%s", arr);
 	return 0;
 }
+
+
+/判断字符串是否是通过左旋得到
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h> 
+#include <assert.h>
+#include <string.h>
+void reverse(char* left, char* right) {
+	assert(left != NULL);
+	assert(right != NULL);
+	char temp = *left;
+	*left = *right;
+	*right = temp;
+}
+void left_move(char*arr,int step) {
+	assert(arr);
+	int len = strlen(arr);
+	assert(step <= len);
+	reverse(arr,arr+step-1);//逆序左边
+	reverse(arr+step,arr+len-1);//逆序右边
+	reverse(arr,arr+len-1);//逆序全部
+}
+int is_left_move(char* s1, char* s2) {
+	int i = 0;
+	int len = strlen(s1);
+	for (i = 0; i <len ; i++) {
+		left_move(s1, 1);
+		int ret = strcmp(s1, s2);
+		if (ret == 0)
+			return 1;
+	}
+	return 0;
+}
+int main() {
+	char arr1[] = "abcdef";
+	char arr2[] = "abcdef";
+	int ret = is_left_move(arr1, arr2);
+	if (ret == 1) 
+		printf("YES\n");
+	else 
+		printf("NO\n");
+	return 0;
+}
