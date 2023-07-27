@@ -227,3 +227,27 @@ int main() {
 	test();
 	return 0;
 }
+
+
+//修改
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void getMemory(char** p)
+{
+	*p = (char*)malloc(100);
+}
+void test(void)
+{
+	char* str = NULL;
+	getMemory(&str);
+	strcpy(str, "hello world");
+	printf(str);
+	free(str);
+	str = NULL;
+}
+int main() {
+	test();
+	return 0;
+}
