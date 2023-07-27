@@ -205,3 +205,25 @@ int main() {
 		printf("NO\n");
 	return 0;
 }
+
+
+//运行程序奔溃，程序存在内存泄漏问题
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+void getMemory(char* p)
+{
+	p = (char*)malloc(100);//p是形参出去就销毁，没释放且找不到->内存泄漏
+}
+void test(void)
+{
+	char* str = NULL;
+	getMemory(str);//依然为NULL
+	strcpy(str, "hello world");//非法访问内存
+	printf(str);
+}
+int main() {
+	test();
+	return 0;
+}
