@@ -251,3 +251,25 @@ int main() {
 	test();
 	return 0;
 }
+
+
+//非法访问内存
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+char* getMemory(void)
+{
+	char p[]="hello world";
+	return p;//返回栈空间地址
+}
+void test(void)
+{
+	char* str = NULL;
+	str=getMemory();//函数调用完就销毁了
+	printf(str);//打印随机值
+}
+int main() {
+	test();
+	return 0;
+}
